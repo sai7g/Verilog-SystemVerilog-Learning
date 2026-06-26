@@ -1,0 +1,17 @@
+# Compiled files
+*.vvp
+*.out
+*.o
+
+# Waveform files
+*.vcd
+*.gtkw
+
+# VS Code settings
+.vscode/
+
+# Windows files
+Thumbs.db
+
+# macOS files
+.DS_Store
