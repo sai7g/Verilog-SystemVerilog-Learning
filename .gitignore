@@ -2,6 +2,7 @@
 *.vvp
 *.out
 *.o
+hello
 
 # Waveform files
 *.vcd
