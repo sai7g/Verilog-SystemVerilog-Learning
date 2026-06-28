@@ -16,3 +16,7 @@ Thumbs.db
 
 # macOS files
 .DS_Store
+
+# Icarus Verilog Compiled files
+*_sim
+*.vvp
