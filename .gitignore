@@ -19,5 +19,7 @@ Thumbs.db
 
 # Icarus Verilog Compiled files
 *_sim
-*.vvp
 *_tb
+*.vcd
+*.vvp
+*.gtkw
