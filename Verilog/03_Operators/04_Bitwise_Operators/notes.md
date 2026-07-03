@@ -1,23 +1,127 @@
-# Bitwise Operators – Quick Notes
+# Notes - Bitwise Operators
 
 ## Definition
 
-Bitwise operators perform operations on each bit of the operands independently.
+Bitwise operators perform operations on each individual bit of the operands and return a result with the same width as the operands.
 
-Unlike logical operators, bitwise operators return a vector whose width is the same as the input operands.
+Unlike logical operators, bitwise operators manipulate each corresponding bit independently.
+
+They are primarily used for bit manipulation in digital hardware and RTL design.
 
 ---
 
-## Operators
+## Bitwise Operators
 
-| Operator | Name |
-|----------|------|
+| Operator | Description |
+|----------|-------------|
 | `&` | Bitwise AND |
 | `|` | Bitwise OR |
 | `^` | Bitwise XOR |
 | `~` | Bitwise NOT |
-| `~^` | Bitwise XNOR |
-| `^~` | Bitwise XNOR |
+| `~^` or `^~` | Bitwise XNOR |
+
+---
+
+## Bitwise AND (&)
+
+Returns **1** only when both corresponding bits are **1**.
+
+### Example
+
+```verilog
+assign y = a & b;
+```
+
+### Truth Table
+
+| A | B | Output |
+|---|---|--------|
+| 0 | 0 | 0 |
+| 0 | 1 | 0 |
+| 1 | 0 | 0 |
+| 1 | 1 | 1 |
+
+---
+
+## Bitwise OR (|)
+
+Returns **1** when at least one corresponding bit is **1**.
+
+### Example
+
+```verilog
+assign y = a | b;
+```
+
+### Truth Table
+
+| A | B | Output |
+|---|---|--------|
+| 0 | 0 | 0 |
+| 0 | 1 | 1 |
+| 1 | 0 | 1 |
+| 1 | 1 | 1 |
+
+---
+
+## Bitwise XOR (^)
+
+Returns **1** when the corresponding bits are different.
+
+### Example
+
+```verilog
+assign y = a ^ b;
+```
+
+### Truth Table
+
+| A | B | Output |
+|---|---|--------|
+| 0 | 0 | 0 |
+| 0 | 1 | 1 |
+| 1 | 0 | 1 |
+| 1 | 1 | 0 |
+
+---
+
+## Bitwise NOT (~)
+
+Inverts every bit of the operand.
+
+### Example
+
+```verilog
+assign y = ~a;
+```
+
+### Truth Table
+
+| A | Output |
+|---|--------|
+| 0 | 1 |
+| 1 | 0 |
+
+---
+
+## Bitwise XNOR (~^ or ^~)
+
+Returns **1** when the corresponding bits are equal.
+
+### Example
+
+```verilog
+assign y = a ~^ b;
+```
+
+### Truth Table
+
+| A | B | Output |
+|---|---|--------|
+| 0 | 0 | 1 |
+| 0 | 1 | 0 |
+| 1 | 0 | 0 |
+| 1 | 1 | 1 |
 
 ---
 
@@ -28,169 +132,97 @@ a = 1010
 b = 1100
 ```
 
-### Bitwise AND
-
-```
-1010
-1100
-----
-1000
-```
-
-### Bitwise OR
-
-```
-1010
-1100
-----
-1110
-```
-
-### Bitwise XOR
-
-```
-1010
-1100
-----
-0110
-```
-
-### Bitwise NOT
-
-```
-1010
-----
-0101
-```
-
-### Bitwise XNOR
-
-```
-1010
-1100
-----
-1001
-```
+| Operation | Result |
+|-----------|--------|
+| a & b | 1000 |
+| a \| b | 1110 |
+| a ^ b | 0110 |
+| ~a | 0101 |
+| a ~^ b | 1001 |
 
 ---
 
-## Truth Tables
-
-### AND
-
-| A | B | Output |
-|---|---|--------|
-|0|0|0|
-|0|1|0|
-|1|0|0|
-|1|1|1|
-
-### OR
-
-| A | B | Output |
-|---|---|--------|
-|0|0|0|
-|0|1|1|
-|1|0|1|
-|1|1|1|
-
-### XOR
-
-| A | B | Output |
-|---|---|--------|
-|0|0|0|
-|0|1|1|
-|1|0|1|
-|1|1|0|
-
-### XNOR
-
-| A | B | Output |
-|---|---|--------|
-|0|0|1|
-|0|1|0|
-|1|0|0|
-|1|1|1|
-
-### NOT
-
-| A | Output |
-|---|--------|
-|0|1|
-|1|0|
-
----
-
-## Hardware Concept
-
-Bitwise operators synthesize directly into hardware gates.
-
-```
-&  → AND Gate
-|  → OR Gate
-^  → XOR Gate
-~  → NOT Gate
-~^ → XNOR Gate
-```
-
----
-
-## Common Applications
-
-- ALU operations
-- Register masking
-- Data manipulation
-- Instruction decoding
-- Parity generation
-- Error detection
-- Control logic
-
----
-
-## Difference Between Logical and Bitwise Operators
+## Logical vs Bitwise Operators
 
 | Logical | Bitwise |
 |----------|----------|
 | `&&` | `&` |
 | `||` | `|` |
 | `!` | `~` |
-| Output is 1 bit | Output width equals operand width |
+| Returns 1 bit | Returns multiple bits |
+| Used in conditions | Used for bit manipulation |
+
+---
+
+## Hardware Mapping
+
+Each bitwise operator synthesizes directly into combinational logic gates.
+
+Example:
+
+```verilog
+assign y = a & b;
+```
+
+Synthesized Hardware:
+
+- `&` → AND Gates
+- `|` → OR Gates
+- `^` → XOR Gates
+- `~` → NOT Gates
+- `~^` → XNOR Gates
+
+---
+
+## Applications
+
+- Arithmetic Logic Units (ALUs)
+- Register masking
+- Control registers
+- Instruction decoding
+- Error detection
+- Parity generation
+- Encryption
+- Status flag manipulation
 
 ---
 
 ## Common Mistakes
 
-- Confusing `&` with `&&`
-- Confusing `|` with `||`
-- Using `~` instead of `!`
-- Forgetting that bitwise operators operate on each bit independently
-- Ignoring operand width mismatches
+- Using `&&` instead of `&`.
+- Using `||` instead of `|`.
+- Using `!` instead of `~`.
+- Expecting bitwise operators to return a single-bit result.
+- Ignoring operand width mismatches.
 
 ---
 
-## Interview Tips
+## Best Practices
 
-- Know the difference between logical and bitwise operators.
-- Understand how XOR and XNOR work.
-- Remember that bitwise operators synthesize directly into logic gates.
-- Be comfortable tracing bitwise operations by hand.
-- Expect questions on masking and parity generation.
+- Use bitwise operators for bit-level data manipulation.
+- Use logical operators only for conditional expressions.
+- Ensure operands have matching widths.
+- Simulate designs before synthesis.
+- Use meaningful signal names in RTL code.
 
 ---
 
-## Quick Revision
+## Interview Points
 
-```
-&   → AND
-|   → OR
-^   → XOR
-~   → NOT
-~^  → XNOR
-^~  → XNOR
-```
+- List all bitwise operators in Verilog.
+- Explain the difference between bitwise and logical operators.
+- Which bitwise operator is used for parity generation?
+- What hardware is synthesized for bitwise operators?
+- Explain the difference between XOR and XNOR.
+- Where are bitwise operators commonly used in RTL design?
 
-**Remember:**
+---
 
-- Bitwise operators operate on each bit independently.
-- Output width remains the same as the input width.
-- They are fundamental building blocks in FPGA and ASIC RTL design.
+## Summary
+
+- Verilog provides five primary bitwise operations: `&`, `|`, `^`, `~`, and `~^` (`^~`).
+- Bitwise operators perform operations on each corresponding bit independently.
+- The output width is the same as the operand width.
+- They synthesize directly into logic gates.
+- They are widely used in ALUs, instruction decoding, masking operations, and control logic.
+- Do not confuse bitwise operators with logical operators.
