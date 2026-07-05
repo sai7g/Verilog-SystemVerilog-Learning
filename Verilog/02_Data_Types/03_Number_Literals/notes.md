@@ -164,3 +164,4 @@ $display("%o", data);
 - General syntax: `<width>'<base><value>`.
 - Supported bases: binary, decimal, hexadecimal, and octal.
 - Number literals are heavily used in RTL design for constants, addresses, counters, and instruction encoding.
+
