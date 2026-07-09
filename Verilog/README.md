@@ -4,7 +4,7 @@
 
 ## Overview
 
-This repository documents my Verilog HDL learning journey through organized modules, handwritten notes, code examples, and practical RTL designs.
+This repository documents my Verilog HDL learning journey through organized modules, code examples, and practical RTL designs.
 
 The objective is not only to learn Verilog syntax but also to understand how digital hardware is modeled, simulated, synthesized, and implemented for FPGA and ASIC design.
 
@@ -164,10 +164,10 @@ For every topic, I follow the same workflow:
 
 # About This Repository
 
-This repository serves as a personal learning record and a reference for anyone beginning their journey with Verilog HDL and RTL design. All notes are written in my own words while code examples are implemented as part of my hands-on practice.
+This repository serves as a personal learning record and a reference for anyone beginning their journey with Verilog HDL and RTL design. 
 
 ---
 
-**Author:** Saikumar
+**Author:** Kalisetty Sai kumar
 **Field:** Electronics and Communication Engineering (ECE)
 **Focus Areas:** Verilog HDL • RTL Design • FPGA • ASIC • VLSI
