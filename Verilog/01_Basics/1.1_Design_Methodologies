@@ -1,0 +1,79 @@
+# Design Methodologies in Verilog HDL
+
+## Introduction
+
+Design methodology is a systematic approach used to develop digital hardware. It provides a structured process for designing, verifying, and implementing digital systems. The two primary methodologies used in Verilog are Top-Down and Bottom-Up design.
+
+---
+
+# 1. Top-Down Design Methodology
+
+## Definition
+
+Top-Down design starts with the complete system specification. The system is divided into smaller functional modules until each module becomes simple enough to implement and verify.
+
+## Hierarchical Structure
+
+![Top-Down Design](images/top_down_design.png)
+
+## Advantages
+
+- Easy to manage large and complex designs.
+- Improves modularity.
+- Simplifies system planning.
+- Easier verification of system architecture.
+
+## Disadvantages
+
+- Low-level implementation is considered later.
+- Changes in architecture may affect multiple modules.
+
+---
+
+# 2. Bottom-Up Design Methodology
+
+## Definition
+
+Bottom-Up design begins with designing and verifying small modules. These modules are then integrated to form larger subsystems until the complete system is built.
+
+## Hierarchical Structure
+
+![Bottom-Up Design](images/bottom_up_design.png)
+
+## Advantages
+
+- Modules can be reused.
+- Easier debugging and testing.
+- Suitable for library-based designs.
+- Individual modules can be verified independently.
+
+## Disadvantages
+
+- System integration may become complex.
+- Overall system architecture is considered later.
+
+---
+
+# Comparison
+
+| Feature | Top-Down | Bottom-Up |
+|---------|----------|-----------|
+| Starts With | Complete System | Small Modules |
+| Approach | Divide | Combine |
+| Focus | Architecture | Implementation |
+| Best For | Large Designs | Reusable Designs |
+
+---
+
+# Conclusion
+
+Modern FPGA and ASIC projects generally use a combination of Top-Down and Bottom-Up methodologies. Top-Down helps define the overall architecture, while Bottom-Up enables efficient module development and reuse.
+
+---
+
+# References
+
+1. Samir Palnitkar, *Verilog HDL: A Guide to Digital Design and Synthesis*, 2nd Edition.
+2. IEEE Std 1364 – Verilog Hardware Description Language.
+3. Xilinx Vivado Design Suite Documentation.
+4. Intel FPGA Documentation.
