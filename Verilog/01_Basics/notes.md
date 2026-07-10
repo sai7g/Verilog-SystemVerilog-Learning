@@ -1,26 +1,24 @@
-# Verilog Basics - Notes
+# Module 01: Verilog Basics
+
+## Overview
+
+Verilog HDL is a Hardware Description Language (HDL) used to model, simulate, and design digital electronic systems. It is widely used for FPGA and ASIC development.
+
+This module introduces the basic concepts that every Verilog learner should understand before writing complex hardware descriptions.
 
 ---
 
-# Module 1: Introduction to Verilog
+# Topics Covered
 
-## What is Verilog?
+## 1. Introduction to Verilog
 
-Verilog HDL is a Hardware Description Language (HDL) used to model, design, and verify digital circuits such as processors, FPGAs, and ASICs. It supports multiple abstraction levels—Gate Level, Dataflow, and Behavioral—allowing engineers to describe hardware from logic gates to complete systems.
+- What is Verilog?
+- What is HDL?
+- Why Verilog?
+- Applications
+- Basic Verilog Program
 
-## What is HDL?
-
-HDL (Hardware Description Language) is used to describe digital hardware. Unlike programming languages such as C or Python, HDL models hardware that operates in parallel.
-
-## Why Verilog?
-
-* Describes digital circuits
-* Supports simulation before hardware implementation
-* Used in FPGA and ASIC design
-* Enables hardware verification
-* Widely used in the semiconductor industry
-
-## Basic Structure of a Verilog Program
+Example:
 
 ```verilog
 module hello;
@@ -33,85 +31,56 @@ end
 endmodule
 ```
 
-### Explanation
+---
 
-* `module` – Defines a hardware module.
-* `initial` – Executes once during simulation.
-* `begin/end` – Groups multiple statements.
-* `$display` – Prints text to the console.
-* `$finish` – Ends the simulation.
-* `endmodule` – Ends the module definition.
+## 2. Design Methodologies
 
-## Simulation Flow
+Before writing Verilog code, it is important to understand how digital systems are designed.
 
-1. Write `hello.v`
-2. Compile
+This topic explains:
 
-```bash
-iverilog -o hello hello.v
-```
+- Top-Down Design
+- Bottom-Up Design
+- Hierarchical Design
 
-3. Run
+📄 See:
 
-```bash
-vvp hello
-```
-
-## Key Takeaways
-
-* Verilog describes hardware.
-* Every design starts with a module.
-* `initial` executes once during simulation.
-* `$display` prints simulation messages.
-* `$finish` ends the simulation.
+**1.1_Design_Methodologies.md**
 
 ---
 
-# Module 2: Module Structure and Ports
+## 3. Lexical Conventions
 
-## Objective
+Understanding Verilog syntax begins with lexical conventions.
 
-Understand Verilog modules, ports, module instantiation, and testbenches.
+This topic covers:
 
-## What is a Module?
+- White Spaces
+- Comments
+- Identifiers
+- Keywords
+- Numbers
+- Strings
+- Operators
+- Case Sensitivity
 
-A module is the basic building block of every Verilog design.
+📄 See:
 
-Every digital circuit—such as an AND gate, ALU, counter, UART, or processor—is represented as a module.
+**1.2_lexical_conventions.md**
 
-General syntax:
+---
 
-```verilog
-module module_name(
-    input  a,
-    input  b,
-    output y
-);
+## 4. Module Structure
 
-// RTL logic
+Topics include:
 
-endmodule
-```
+- Module Declaration
+- Input Ports
+- Output Ports
+- Continuous Assignment
+- Module Instantiation
 
-## Ports
-
-### Input
-
-Receives signals from outside the module.
-
-```verilog
-input a;
-```
-
-### Output
-
-Sends signals outside the module.
-
-```verilog
-output y;
-```
-
-## Example: AND Gate
+Example:
 
 ```verilog
 module module_ports(
@@ -125,81 +94,65 @@ assign y = a & b;
 endmodule
 ```
 
-## Hardware Representation
+---
 
-```
-     a ----\
-            AND ---- y
-     b ----/
-```
+## 5. Testbench Basics
 
-## Module Instantiation
+A testbench is used to verify the functionality of a Verilog module by applying input stimuli and observing outputs.
+
+Useful system tasks:
 
 ```verilog
-module_ports dut(
-    .a(a),
-    .b(b),
-    .y(y)
-);
+$display();
+$finish();
+$dumpfile();
+$dumpvars();
 ```
 
-* `module_ports` → Module name
-* `dut` → Instance name
-* `.a(a)` → Named port mapping
+---
 
-## Testbench
+## Simulation Flow
 
-A testbench verifies the design by applying inputs and observing outputs.
+Compile
 
-A testbench is **not synthesized into hardware**.
-
-## Waveform Generation
-
-```verilog
-$dumpfile("module_ports.vcd");
-$dumpvars(0, tb_module_ports);
+```bash
+iverilog -o module_ports_sim module_ports.v tb_module_ports.v
 ```
 
-Open the waveform:
+Run
+
+```bash
+vvp module_ports_sim
+```
+
+View Waveform
 
 ```bash
 gtkwave module_ports.vcd
 ```
 
-## Truth Table
+---
 
-| a | b | y |
-| - | - | - |
-| 0 | 0 | 0 |
-| 0 | 1 | 0 |
-| 1 | 0 | 0 |
-| 1 | 1 | 1 |
+# Summary
 
-## Key Takeaways
+After completing this module, you should be able to:
 
-* A module is the basic building block of Verilog.
-* Ports connect modules to the outside world.
-* `assign` performs continuous assignments.
-* Modules can be instantiated inside other modules.
-* Testbenches verify functionality before synthesis.
-
-## Interview Questions
-
-1. What is a Verilog module?
-2. What is module instantiation?
-3. What is named port mapping?
-4. Why do we use testbenches?
-5. What is the purpose of `$dumpfile` and `$dumpvars`?
+- Explain Verilog HDL.
+- Understand HDL concepts.
+- Describe Top-Down and Bottom-Up methodologies.
+- Apply lexical conventions correctly.
+- Write basic Verilog modules.
+- Use module ports.
+- Write simple testbenches.
+- Simulate Verilog designs.
+- Analyze waveforms using GTKWave.
 
 ---
 
-# Overall Summary
+# References
 
-After completing the Basics module, I can:
-
-* Write basic Verilog programs.
-* Understand module structure.
-* Declare input and output ports.
-* Use continuous assignments.
-* Write and simulate testbenches.
-* Generate and analyze waveforms using GTKWave.
+1. Samir Palnitkar – *Verilog HDL: A Guide to Digital Design and Synthesis*
+2. IEEE Std 1364 – Verilog Hardware Description Language
+3. Donald E. Thomas & Philip R. Moorby – *The Verilog Hardware Description Language*
+4. Xilinx Vivado Documentation
+5. Intel FPGA Documentation

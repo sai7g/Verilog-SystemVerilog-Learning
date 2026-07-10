@@ -1,139 +1,120 @@
-# Verilog Basics
+# Module 01: Verilog Basics
 
-## Objective
+This module introduces the fundamental concepts of Verilog HDL. It is designed for beginners and provides the foundation required before moving to advanced Verilog language constructs and RTL design.
 
-Learn the fundamentals of Verilog HDL, understand the structure of a Verilog module, and simulate simple digital circuits using Icarus Verilog.
+---
+
+## Learning Objectives
+
+After completing this module, you will be able to:
+
+- Understand the purpose of Verilog HDL.
+- Explain the Hardware Description Language (HDL).
+- Understand Top-Down and Bottom-Up design methodologies.
+- Learn Verilog lexical conventions.
+- Write a basic Verilog program.
+- Understand Verilog module structure.
+- Declare input and output ports.
+- Write a simple testbench.
+- Compile and simulate Verilog designs.
+- Generate waveform files using GTKWave.
 
 ---
 
 ## Topics Covered
 
-### Module 1: Introduction to Verilog
+### 1. Introduction to Verilog
 
-* What is Verilog?
-* Hardware Description Language (HDL)
-* Basic Verilog Program
-* Module Structure
-* `initial` Block
-* `begin-end` Block
-* `$display`
-* `$finish`
-* Compilation and Simulation Flow
+- What is Verilog HDL?
+- Hardware Description Language (HDL)
+- Why Verilog?
+- Applications of Verilog
 
-### Module 2: Module Structure and Ports
+### 2. Design Methodologies
 
-* Verilog Module
-* Input Ports
-* Output Ports
-* Continuous Assignment (`assign`)
-* Module Instantiation
-* Testbench Basics
-* VCD Waveform Generation
-* GTKWave Visualization
+- Top-Down Design
+- Bottom-Up Design
+- Hierarchical Design
 
----
+📄 Documentation: `1.1_Design_Methodologies.md`
 
-## Files
+### 3. Lexical Conventions
 
-| File                | Description                                      |
-| ------------------- | ------------------------------------------------ |
-| `hello.v`           | First Verilog program                            |
-| `module_ports.v`    | AND gate module demonstrating input/output ports |
-| `tb_module_ports.v` | Testbench for `module_ports.v`                   |
-| `notes.md`          | Learning notes for Modules 1 and 2               |
+- White Spaces
+- Comments
+- Identifiers
+- Keywords
+- Numbers
+- Strings
+- Operators
+- Case Sensitivity
 
----
+📄 Documentation: `1.2_lexical_conventions.md`
 
-## Compilation
+### 4. Verilog Module Basics
 
-### Hello Program
+- Module Declaration
+- Input Ports
+- Output Ports
+- Module Instantiation
 
-```bash
-iverilog -o hello hello.v
-```
+### 5. Simulation Basics
 
-### Module Ports Example
-
-```bash
-iverilog -o module_ports_sim module_ports.v tb_module_ports.v
-```
+- Testbench
+- `$display`
+- `$finish`
+- `$dumpfile`
+- `$dumpvars`
+- GTKWave
 
 ---
 
-## Simulation
-
-### Hello Program
-
-```bash
-vvp hello
-```
-
-### Module Ports Example
-
-```bash
-vvp module_ports_sim
-```
-
----
-
-## Waveform Generation
-
-The testbench generates a VCD (Value Change Dump) file.
-
-Open it using GTKWave:
-
-```bash
-gtkwave module_ports.vcd
-```
-
----
-
-## Project Structure
+## Repository Structure
 
 ```text
 01_Basics/
 ├── README.md
 ├── notes.md
+├── 1.1_Design_Methodologies.md
+├── 1.2_lexical_conventions.md
 ├── hello.v
 ├── module_ports.v
-└── tb_module_ports.v
+├── tb_module_ports.v
+├── images/
+│   ├── top_down_design.png
+│   └── bottom_up_design.png
+└── practice/
+    └── 01_Buffer/
 ```
 
 ---
 
-## Learning Outcomes
+## Example Programs
 
-After completing this module, I can:
-
-* Explain the purpose of Verilog HDL.
-* Write a basic Verilog module.
-* Declare input and output ports.
-* Use continuous assignments with `assign`.
-* Write a simple testbench.
-* Instantiate a module.
-* Compile and simulate designs using Icarus Verilog.
-* Generate and analyze waveforms using GTKWave.
+| File | Description |
+|------|-------------|
+| hello.v | First Verilog program |
+| module_ports.v | Module declaration and ports |
+| tb_module_ports.v | Testbench for module_ports |
 
 ---
 
 ## Tools Used
 
-* Visual Studio Code
-* Icarus Verilog
-* GTKWave
-* Git
-* GitHub
+- Visual Studio Code
+- Icarus Verilog
+- GTKWave
+- Git
+- GitHub
+
+---
+
+## Learning Outcome
+
+After completing this module, you will have a solid understanding of Verilog fundamentals and be prepared to learn data types, operators, procedural blocks, and RTL design.
 
 ---
 
 ## Next Module
 
-**Module 3: Verilog Data Types**
-
-Topics include:
-
-* `wire`
-* `reg`
-* Nets vs Variables
-* Continuous vs Procedural Assignments
-* Synthesizable Coding Practices
+**Module 02 – Data Types**
