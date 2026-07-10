@@ -4,23 +4,6 @@ This module introduces the fundamental concepts of Verilog HDL. It is designed f
 
 ---
 
-## Learning Objectives
-
-After completing this module, you will be able to:
-
-- Understand the purpose of Verilog HDL.
-- Explain the Hardware Description Language (HDL).
-- Understand Top-Down and Bottom-Up design methodologies.
-- Learn Verilog lexical conventions.
-- Write a basic Verilog program.
-- Understand Verilog module structure.
-- Declare input and output ports.
-- Write a simple testbench.
-- Compile and simulate Verilog designs.
-- Generate waveform files using GTKWave.
-
----
-
 ## Topics Covered
 
 ### 1. Introduction to Verilog
