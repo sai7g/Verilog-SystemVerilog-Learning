@@ -12,11 +12,20 @@ This module introduces the basic concepts that every Verilog learner should unde
 
 ## 1. Introduction to Verilog
 
+This topic introduces the fundamentals of Verilog HDL, including:
+
 - What is Verilog?
 - What is HDL?
 - Why Verilog?
+- Features
 - Applications
-- Basic Verilog Program
+- Levels of Abstraction
+- Design Flow
+- First Verilog Program
+
+📄 See:
+
+**1.0_Introduction_to_Verilog.md**
 
 Example:
 

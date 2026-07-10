@@ -8,10 +8,16 @@ This module introduces the fundamental concepts of Verilog HDL. It is designed f
 
 ### 1. Introduction to Verilog
 
-- What is Verilog HDL?
-- Hardware Description Language (HDL)
+- What is Verilog?
+- What is HDL?
 - Why Verilog?
-- Applications of Verilog
+- Features
+- Applications
+- Levels of Abstraction
+- Design Flow
+- First Verilog Program
+
+📄 Documentation: `1.0_Introduction_to_Verilog.md`
 
 ### 2. Design Methodologies
 
