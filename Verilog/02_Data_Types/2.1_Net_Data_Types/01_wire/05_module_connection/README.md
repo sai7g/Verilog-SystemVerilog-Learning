@@ -22,11 +22,17 @@ Learn how to connect two Verilog modules using the `wire` data type.
 ## Compile
 
 ```bash
-iverilog -o sim and_gate.v module_connection.v tb_module_connection.v
+iverilog -o module_connection_sim and_gate.v module_connection.v tb_module_connection.v
 ```
 
 ## Run
 
 ```bash
-vvp sim
+vvp module_connection_sim
+```
+
+## Waveform
+
+```bash
+gtkwave module_connection.vcd
 ```
