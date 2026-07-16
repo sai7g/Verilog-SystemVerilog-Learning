@@ -2,34 +2,9 @@
 
 ## Introduction
 
-Verilog data types are divided into two major categories:
+Variable data types are used to store values during simulation and procedural execution.
 
-1. Net Data Types
-2. Variable Data Types
-
-You have already completed all Net Data Types. This module focuses on Variable Data Types.
-
----
-
-# Why Do Variable Data Types Exist?
-
-A net simply reflects the value driven onto it.
-
-A variable stores a value assigned during procedural execution.
-
-Example concept:
-
-```text
-Net:
-assign out = a & b;
-
-Variable:
-always @(*) begin
-    out = a & b;
-end
-```
-
-The second example requires a variable because the assignment occurs inside an `always` block.
+Unlike signal connections that continuously reflect driven values, variables retain their current value until they are explicitly updated.
 
 ---
 
@@ -37,59 +12,78 @@ The second example requires a variable because the assignment occurs inside an `
 
 ## 1. reg
 
-General-purpose procedural variable.
+General-purpose variable type.
 
-Used in:
+Typical uses:
 
 * Combinational logic
 * Sequential logic
+* Finite State Machines
 * Testbenches
 
 ---
 
 ## 2. integer
 
-32-bit signed integer.
+32-bit signed variable.
 
-Used for:
+Typical uses:
 
 * Loop counters
 * Arithmetic calculations
-* Simulation variables
+* Simulation control
+
+Example range:
+
+```text
+-2,147,483,648 to +2,147,483,647
+```
 
 ---
 
 ## 3. time
 
-64-bit unsigned value used for simulation time.
+64-bit unsigned variable used to store simulation time.
 
-Commonly used with:
+Typical uses:
 
-* `$time`
 * Delay measurements
+* Timing analysis
+* Event tracking
 
 ---
 
 ## 4. real
 
-Double-precision floating-point value.
+Double-precision floating-point variable.
 
-Used only in simulation.
-
-Examples:
+Typical uses:
 
 * Mathematical calculations
-* Analog modeling
+* Analog behavior modeling
+* Testbench calculations
+
+Example values:
+
+```text
+3.14
+0.125
+12.75
+```
 
 ---
 
 ## 5. realtime
 
-Floating-point simulation time.
+Floating-point simulation time variable.
 
-Provides higher precision than `time`.
+Provides higher timing precision than the `time` data type.
 
-Used mainly for timing analysis in simulation.
+Typical uses:
+
+* Precise timing measurements
+* Delay analysis
+* Verification environments
 
 ---
 
@@ -97,24 +91,23 @@ Used mainly for timing analysis in simulation.
 
 Variable data types:
 
-* Store values
-* Are assigned procedurally
-* Can be updated multiple times
-* Retain their value until changed
-* Are widely used in RTL and verification
+* Can store values
+* Retain their value until reassigned
+* Are updated procedurally
+* Support simulation modeling
+* Are essential for RTL development
 
 ---
 
-# Comparison with Net Data Types
+# Synthesizability
 
-| Feature         | Net Data Types      | Variable Data Types |
-| --------------- | ------------------- | ------------------- |
-| Represents      | Physical connection | Stored value        |
-| Assignment      | Continuous          | Procedural          |
-| Uses `assign`   | Yes                 | No                  |
-| Uses `initial`  | No                  | Yes                 |
-| Uses `always`   | No                  | Yes                 |
-| Can store value | No                  | Yes                 |
+| Data Type | Synthesizable                  |
+| --------- | ------------------------------ |
+| reg       | Yes                            |
+| integer   | Generally Yes (tool dependent) |
+| time      | No                             |
+| real      | No                             |
+| realtime  | No                             |
 
 ---
 
@@ -122,81 +115,59 @@ Variable data types:
 
 ### Mistake 1
 
-Trying to assign a net inside an `always` block.
+Assuming every variable creates hardware storage.
 
-Incorrect idea:
-
-* Nets cannot be assigned procedurally.
+Actual hardware depends on how the variable is used.
 
 ---
 
 ### Mistake 2
 
-Thinking `reg` always creates a hardware register.
+Using `real` in synthesizable RTL.
 
-Reality:
-
-* `reg` is a variable data type.
-* Whether hardware becomes combinational logic or a flip-flop depends on the procedural code, not the keyword itself.
+`real` is intended for simulation and verification.
 
 ---
 
 ### Mistake 3
 
-Using variables without understanding procedural execution.
+Using `time` or `realtime` in hardware design.
 
-Remember:
-
-* Variables change only when the procedural block executes.
-
----
-
-# Synthesizability
-
-Some variable types are synthesizable.
-
-| Data Type | Synthesizable                                                             |
-| --------- | ------------------------------------------------------------------------- |
-| reg       | ✅ Yes                                                                     |
-| integer   | ✅ Mostly (tool dependent, commonly for loop indices and certain RTL uses) |
-| time      | ❌ No                                                                      |
-| real      | ❌ No                                                                      |
-| realtime  | ❌ No                                                                      |
+These data types exist only for simulation purposes.
 
 ---
 
 # Practical Usage
 
-Variable data types appear in almost every RTL design:
+Variable data types appear in:
 
 * Registers
 * Counters
-* FSMs
+* State machines
 * Pipeline stages
 * Arithmetic units
 * Memories
 * Testbenches
-
-Understanding them is essential before learning procedural blocks and sequential circuit design.
+* Verification environments
 
 ---
 
 # Interview Questions
 
-1. What is the difference between a net and a variable?
-2. Why can't a `wire` be assigned inside an `always` block?
-3. Does `reg` always infer a flip-flop?
-4. Which variable data types are synthesizable?
-5. What is the purpose of `integer`?
-6. Where are `real` and `realtime` used?
+1. What are Variable Data Types in Verilog?
+2. Why are variable data types needed?
+3. What is the difference between `reg` and `integer`?
+4. What is the purpose of the `time` data type?
+5. When would you use `real`?
+6. What is the difference between `time` and `realtime`?
+7. Which variable data types are synthesizable?
 
 ---
 
 # Key Takeaways
 
-* Variable data types store values assigned procedurally.
-* They are different from net data types.
-* `reg` is the most important variable type in Verilog RTL.
-* `integer` is commonly used for counting and loops.
-* `time`, `real`, and `realtime` are primarily simulation-oriented.
-* A strong understanding of variables is essential before learning procedural blocks, FSMs, and sequential logic.
+* Variable data types store values.
+* They are primarily used in procedural code.
+* Different variable types serve different purposes.
+* Some variable types are synthesizable while others are simulation-only.
+* Understanding variable data types is essential for RTL design and verification.

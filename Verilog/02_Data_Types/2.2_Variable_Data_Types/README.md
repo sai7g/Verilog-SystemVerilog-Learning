@@ -2,21 +2,19 @@
 
 ## Objective
 
-Learn the Verilog **Variable Data Types**, which are used to store values assigned inside procedural blocks such as `initial` and `always`.
+Learn Verilog Variable Data Types and understand how they are used to store values within procedural blocks.
 
-Unlike **Net Data Types**, which represent physical connections and require drivers, **Variable Data Types** can hold values until they are updated by procedural statements.
-
-Understanding variable data types is essential for writing synthesizable RTL, testbenches, finite state machines (FSMs), counters, registers, memories, and sequential logic.
+Variable data types are fundamental to RTL design and are widely used in combinational logic, sequential logic, counters, finite state machines (FSMs), memories, and testbenches.
 
 ---
 
 ## Topics Covered
 
-* REG
-* INTEGER
-* TIME
-* REAL
-* REALTIME
+* Reg
+* Integer
+* Time
+* Real
+* Realtime
 
 ---
 
@@ -25,12 +23,6 @@ Understanding variable data types is essential for writing synthesizable RTL, te
 ```text
 2.2_Variable_Data_Types/
 ├── 01_Reg/
-│   ├── README.md
-│   ├── notes.md
-│   ├── 01_reg_basic.v
-│   ├── 02_reg_procedural_assignment.v
-│   ├── 03_reg_storage_behavior.v
-│   └── Practice/
 ├── 02_Integer/
 ├── 03_Time/
 ├── 04_Real/
@@ -41,25 +33,36 @@ Understanding variable data types is essential for writing synthesizable RTL, te
 
 ## What are Variable Data Types?
 
-Variable data types are used to **store values** assigned from procedural blocks.
+Variable data types are data objects that can store values assigned from procedural blocks such as:
 
-Typical procedural blocks include:
+* initial
+* always
 
-* `initial`
-* `always`
-
-Unlike net data types, variables do not require continuous drivers.
+They retain their value until a new assignment occurs.
 
 ---
 
-## Net Data Types vs Variable Data Types
+## Characteristics
 
-| Net Data Types                 | Variable Data Types              |
-| ------------------------------ | -------------------------------- |
-| Represent physical connections | Represent stored values          |
-| Driven continuously            | Assigned procedurally            |
-| Use `assign` or module outputs | Use `initial` or `always`        |
-| Cannot directly store values   | Can hold values until reassigned |
+* Store values
+* Used inside procedural blocks
+* Support value updates during simulation
+* Essential for behavioral and RTL modeling
+* Used in both design and verification code
+
+---
+
+## Applications
+
+Variable data types are commonly used in:
+
+* Registers
+* Counters
+* State machines
+* Memory elements
+* Arithmetic operations
+* Testbenches
+* Timing measurements
 
 ---
 
@@ -67,28 +70,8 @@ Unlike net data types, variables do not require continuous drivers.
 
 After completing this module, you will be able to:
 
-* Understand the difference between nets and variables.
-* Choose the correct variable type for a design.
-* Write synthesizable procedural code.
-* Understand how variables behave in simulation.
-* Avoid common beginner mistakes.
-* Build sequential and combinational RTL correctly.
-
----
-
-## Industry Relevance
-
-Variable data types form the foundation of RTL design.
-
-They are used in:
-
-* Flip-flops
-* Latches
-* Finite State Machines (FSMs)
-* Counters
-* Registers
-* Memories
-* Testbenches
-* Control logic
-
-Every RTL Design Engineer must understand variable data types before moving to advanced topics such as procedural blocks, FSMs, memories, and pipelines.
+* Understand the purpose of variable data types.
+* Differentiate between various variable types.
+* Select the appropriate data type for a given application.
+* Write procedural Verilog code effectively.
+* Understand synthesizable and non-synthesizable variable types.
