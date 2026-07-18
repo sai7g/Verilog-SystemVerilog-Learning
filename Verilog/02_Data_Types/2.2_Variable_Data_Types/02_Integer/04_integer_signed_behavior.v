@@ -26,3 +26,10 @@ initial begin
 end
 
 endmodule
+
+/* Expected output
+a = -15
+b = 10
+a + b = -5
+a - b = -25
+a is less than b */
